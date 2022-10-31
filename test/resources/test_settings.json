@@ -1,6 +1,9 @@
 {
     "hostname" : "localhost" , 
     "port" : "5620" , 
+    "flask_settings" : {
+        "SEVER_NAME" : "localhost:3023"
+    },
     "printer_driver" : "Dummy" , 
     "printer_settings" : {
     },
