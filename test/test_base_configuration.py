@@ -1,6 +1,5 @@
 
-from . import app , client 
-
+from . import app, client
 
 
 def test_request_example(client):
