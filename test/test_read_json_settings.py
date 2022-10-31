@@ -15,8 +15,9 @@ from config import Config
 
 
 def test_reading_settings():
-    test_json_settings = "./test_settings.json"
 
-    config = Config(test_json_settings)
-
+    config = Config("./test/resources/test_settings.json")
     assert config.SERVER_NAME == 'localhost'
+
+    config2 = Config("./test/resources/test_settings_2.json")
+    assert config2.SERVER_NAME == "0.0.0.0"
