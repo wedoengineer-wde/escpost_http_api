@@ -1,0 +1,9 @@
+{
+    "hostname" : "localhost" , 
+    "port" : "5620" , 
+    "printer_driver" : "Dummy" , 
+    "printer_settings" : {
+    },
+    "output_folder" : "output",
+    "output_file_format" : "%Y-%m-%d %H-%M-%s.txt"
+}
