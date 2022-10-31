@@ -19,3 +19,8 @@ class Config():
         settings = open_json(json_file)
 
         Config.SERVER_NAME = settings.get("hostname", "localhost")
+        Config.SERVER_PORT = settings.get("port" , "5620")
+        Config.printer_driver = settings["printer_driver"]
+        Config.printer_settings = settings["printer_settings"]
+        Config.output_folder = settings["output_folder"]
+        Config.output_file_format = settings["output_file_format"]
