@@ -4,7 +4,7 @@
     "flask_settings" : {
         "SERVER_NAME" : "localhost:3020"
     },
-    "printer_driver" : "Dummy" , 
+    "printer_driver" : "Usb" , 
     "printer_settings" : {
     },
     "output_folder" : "output",

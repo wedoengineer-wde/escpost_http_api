@@ -1,12 +1,20 @@
 
 
-from main import app as application
+from app import create_app
+from printer_controller import create_printer
+from main import create_routes
+from config import Config
 import pytest
 
+def tmp_config():
+    return Config("./test/resources/test_settings.json")
 
-@pytest.fixture()
+@pytest.fixture(scope="session")
 def app():
-    app = application
+    config = tmp_config()
+    app = create_app(config)
+    printer = create_printer(config.printer_driver , config.printer_settings)
+    app = create_routes(app , printer )
     # other setup can go here
     yield app
     # clean up / reset resources here
