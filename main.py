@@ -1,12 +1,12 @@
-from flask import Flask
-
+from venv import create
 from config import Config
-app = Flask(__name__)
+from app import create_app
 
 config = Config("settings.json")
-app.config.from_mapping(config.flask_settings)
+
+app = create_app(config)
 
 
-@app.route("/is_up")
-def hello_world():
-    return "OK"
+if __name__ == "__main__":
+
+    app.run(host=config.SERVER_NAME, port=config.SERVER_PORT, debug=True)
