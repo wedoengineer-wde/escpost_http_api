@@ -31,3 +31,15 @@ def test_print_request(client):
     text = read_file(file_path)
 
     assert "Text to print" in text
+
+    # Other post
+
+    data2 = {
+        "text": "Another text"
+    }
+    response = client.post("/print", json=data2)
+
+    assert response.status_code == 200
+
+    text2 = read_file(file_path)
+    assert "Another text" in text2

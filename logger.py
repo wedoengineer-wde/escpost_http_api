@@ -18,9 +18,9 @@ class Logger():
             print(f"Creating {folder} folder")
             os.makedirs(folder)
 
-    def print_to_file(self, output: str) -> bool:
+    def print_to_file(self, output: bytes) -> bool:
         file_path = self._get_file_path()
 
-        f = open(file_path, "wb")
+        f = open(file_path, "ab")
         f.write(output)
         f.close()
