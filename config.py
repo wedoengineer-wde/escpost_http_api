@@ -1,14 +1,12 @@
 import os
 import json
 from collections import OrderedDict
-import logging
+
 
 def open_json(file: str) -> dict:
     with open(file, 'r') as config_file:
         data = config_file.read()
     return json.loads(data, object_pairs_hook=OrderedDict)
-
-
 
 
 class Config():
