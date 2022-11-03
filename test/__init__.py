@@ -5,18 +5,30 @@ from printer_controller import create_printer
 from main import create_routes
 from config import Config
 import pytest
+import os
+import shutil
 
 def tmp_config():
     return Config("./test/resources/test_settings.json")
 
+
+def delete_temp_folder():
+    config = tmp_config()
+    if os.path.exists(config.output_folder):
+        shutil.rmtree(config.output_folder)
+
+
 @pytest.fixture(scope="session")
 def app():
     config = tmp_config()
+    
+    delete_temp_folder()
     app = create_app(config)
     printer = create_printer(config.printer_driver , config.printer_settings)
     app = create_routes(app , printer )
     # other setup can go here
     yield app
+    delete_temp_folder() 
     # clean up / reset resources here
 
 
