@@ -12,3 +12,6 @@ def test_print_request(client):
     assert response.status_code == 200
 
     assert os.path.exists(output_folder)
+
+    dirs = os.listdir(output_folder)
+    assert len(dirs) == 1

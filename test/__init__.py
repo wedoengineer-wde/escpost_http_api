@@ -1,8 +1,7 @@
 
-
 from app import create_app
 from printer_controller import create_printer
-from main import create_routes
+from main import create_routes , Logger
 from config import Config
 import pytest
 import os
@@ -25,7 +24,8 @@ def app():
     delete_temp_folder()
     app = create_app(config)
     printer = create_printer(config.printer_driver , config.printer_settings)
-    app = create_routes(app , printer )
+    logger = Logger( output_folder= config.output_folder , output_format=config.output_file_format )
+    app = create_routes(app , printer , logger)
     # other setup can go here
     yield app
     delete_temp_folder() 
