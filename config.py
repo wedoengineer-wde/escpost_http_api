@@ -9,10 +9,6 @@ def open_json(file: str) -> dict:
     return json.loads(data, object_pairs_hook=OrderedDict)
 
 
-def prepare_environment(folder :  str):
-    if not os.path.exists(folder):
-        logging.info(f"Creating {folder} folder")
-        os.makedirs(folder)
 
 
 class Config():
@@ -31,5 +27,3 @@ class Config():
         Config.printer_settings = settings["printer_settings"]
         Config.output_folder = settings["output_folder"]
         Config.output_file_format = settings["output_file_format"]
-
-        prepare_environment(Config.output_folder)
