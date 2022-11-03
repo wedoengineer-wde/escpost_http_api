@@ -8,6 +8,7 @@ import pytest
 import os
 import shutil
 
+
 def tmp_config():
     return Config("./test/resources/test_settings.json")
 
@@ -21,15 +22,16 @@ def delete_temp_folder():
 @pytest.fixture(scope="session")
 def app():
     config = tmp_config()
-    
+
     delete_temp_folder()
     app = create_app(config)
-    printer = create_printer(config.printer_driver , config.printer_settings)
-    logger = Logger( output_folder= config.output_folder , output_format=config.output_file_format )
-    app = create_routes(app , printer , logger)
+    printer = create_printer(config.printer_driver, config.printer_settings)
+    logger = Logger(output_folder=config.output_folder,
+                    output_format=config.output_file_format)
+    app = create_routes(app, printer, logger)
     # other setup can go here
     yield app
-    delete_temp_folder() 
+    delete_temp_folder()
     # clean up / reset resources here
 
 
@@ -37,6 +39,7 @@ def app():
 def ctx(app):
     with app.app_context() as ctx:
         yield ctx
+
 
 @pytest.fixture()
 def client(app):

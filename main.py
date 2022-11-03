@@ -3,11 +3,9 @@ from app import create_app
 from logger import Logger
 
 from printer_controller import create_printer
-import os
 
 
-
-def create_routes(app  , printer  , logger : Logger):
+def create_routes(app, printer, logger: Logger):
 
     @app.route("/is_up")
     def hello_world():
@@ -31,9 +29,10 @@ if __name__ == "__main__":
     app = create_app(config)
 
     printer = create_printer(config.printer_driver, config.printer_settings)
-    
-    logger = Logger( output_folder= config.output_folder , output_format=config.output_file_format ) 
-    
-    app = create_routes(app, printer , logger)
+
+    logger = Logger(output_folder=config.output_folder,
+                    output_format=config.output_file_format)
+
+    app = create_routes(app, printer, logger)
 
     app.run(host=config.SERVER_NAME, port=config.SERVER_PORT, debug=True)
