@@ -4,6 +4,15 @@ from logger import Logger
 
 from printer_controller import create_printer
 
+def create_dependencies(config : Config) : 
+    app = create_app(config)
+
+    printer = create_printer(config.printer_driver, config.printer_settings)
+
+    logger = Logger(output_folder=config.output_folder,
+                    output_format=config.output_file_format)
+    
+    return app , printer , logger
 
 def create_routes(app, printer, logger: Logger):
 
@@ -26,12 +35,7 @@ if __name__ == "__main__":
 
     config = Config("settings.json")
 
-    app = create_app(config)
-
-    printer = create_printer(config.printer_driver, config.printer_settings)
-
-    logger = Logger(output_folder=config.output_folder,
-                    output_format=config.output_file_format)
+    app , printer , logger = create_dependencies ( config)
 
     app = create_routes(app, printer, logger)
 

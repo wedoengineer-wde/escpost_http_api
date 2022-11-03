@@ -1,8 +1,5 @@
-
-from app import create_app
-from printer_controller import create_printer
+from main import create_dependencies
 from main import create_routes
-from logger import Logger
 from config import Config
 import pytest
 import os
@@ -22,12 +19,9 @@ def delete_temp_folder():
 @pytest.fixture(scope="session")
 def app():
     config = tmp_config()
-
     delete_temp_folder()
-    app = create_app(config)
-    printer = create_printer(config.printer_driver, config.printer_settings)
-    logger = Logger(output_folder=config.output_folder,
-                    output_format=config.output_file_format)
+    app , printer , logger = create_dependencies ( config)
+    
     app = create_routes(app, printer, logger)
     # other setup can go here
     yield app
