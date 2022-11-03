@@ -14,6 +14,7 @@ def create_routes(app , printer):
     @app.route("/print", methods=["POST"])
     def print():
         printer.text("hola")
+        return "ok"
     
     return app
 
