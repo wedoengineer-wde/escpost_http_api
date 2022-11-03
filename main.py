@@ -1,5 +1,5 @@
 from config import Config
-from app import create_app
+from app import create_app , Flask , request
 from logger import Logger
 
 from printer_controller import create_printer
@@ -23,7 +23,9 @@ def create_routes(app, printer, logger: Logger):
     @app.route("/print", methods=["POST"])
     def print():
 
-        printer.text("hola")
+        data = request.get_json()
+        text = data["text"]
+        printer.text(text)
 
         logger.print_to_file(printer.output)
         return "ok"
