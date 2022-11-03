@@ -31,5 +31,5 @@ def  test_all_the_variables_are_loaded():
     assert config.SERVER_PORT == "5620"
     assert config.printer_driver == "Dummy"
     assert type(config.printer_settings).__name__ == "OrderedDict"
-    assert config.output_folder == "output"
+    assert config.output_folder == "test_output"
     assert config.output_file_format == "%Y-%m-%d %H-%M-%s.txt"

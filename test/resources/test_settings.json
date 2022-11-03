@@ -7,6 +7,6 @@
     "printer_driver" : "Dummy" , 
     "printer_settings" : {
     },
-    "output_folder" : "output",
+    "output_folder" : "test_output",
     "output_file_format" : "%Y-%m-%d %H-%M-%s.txt"
 }
