@@ -1,7 +1,8 @@
 
 from app import create_app
 from printer_controller import create_printer
-from main import create_routes , Logger
+from main import create_routes
+from logger import Logger
 from config import Config
 import pytest
 import os
