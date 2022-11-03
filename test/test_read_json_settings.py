@@ -3,9 +3,9 @@ from config import Config
 
 """
 {
-    'hostname' : 'localhost' , 
-    'port' : '5620' , 
-    'printer_driver' : 'Dummy' , 
+    'hostname' : 'localhost' ,
+    'port' : '5620' ,
+    'printer_driver' : 'Dummy' ,
     'printer_settings' : {
     },
     "output_folder" : "output",
@@ -23,8 +23,8 @@ def test_reading_settings():
     assert config2.SERVER_NAME == "0.0.0.0"
 
 
-def  test_all_the_variables_are_loaded():
-    
+def test_all_the_variables_are_loaded():
+
     config = Config("./test/resources/test_settings.json")
 
     assert config.SERVER_NAME == 'localhost'

@@ -20,8 +20,8 @@ def delete_temp_folder():
 def app():
     config = tmp_config()
     delete_temp_folder()
-    app , printer , logger = create_dependencies ( config)
-    
+    app, printer, logger = create_dependencies(config)
+
     app = create_routes(app, printer, logger)
     # other setup can go here
     yield app

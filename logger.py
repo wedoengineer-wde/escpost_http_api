@@ -13,7 +13,7 @@ class Logger():
         file_name = datetime.now().strftime(self.output_format)
         return os.path.join(self.output_folder, file_name)
 
-    def create_output_folder(self, folder:  str):
+    def create_output_folder(self, folder: str):
         if not os.path.exists(folder):
             print(f"Creating {folder} folder")
             os.makedirs(folder)
