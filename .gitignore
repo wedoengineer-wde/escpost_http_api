@@ -4,6 +4,7 @@
 /Linux Driver
 /output/*txt
 
+/test_output
 
 # editor autosaves, data and file browser files
 $~
