@@ -11,5 +11,16 @@ POST http://{{host}}/print HTTP/1.1
 content-type: {{contentType}}
 
 {
-    "text": "\n \n hola asdfiasdfaisdfasdf asdf asdf asdf "
+    "text": "hola \n asdfiasdfaisdfasdf \nasdf asdf asdf "
+}
+
+
+### 
+
+
+
+POST http://{{host}}/cut HTTP/1.1
+content-type: {{contentType}}
+
+{
 }

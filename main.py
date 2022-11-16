@@ -33,6 +33,15 @@ def create_routes(app, printer, logger: Logger):
             logger.print_to_file(printer.output)
         return "ok"
 
+    @app.route("/cut", methods=["POST"])
+    def to_cut():
+        # printer.text("\n")
+        printer.cut()
+
+        if printer.__class__.__name__ == "Dummy":
+            logger.print_to_file(printer.output)
+        return "ok"
+
     return app
 
 
