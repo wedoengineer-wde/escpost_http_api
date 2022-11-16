@@ -1,12 +1,14 @@
 {
-    "hostname" : "localhost" , 
-    "port" : "5620" , 
-    "flask_settings" : {
-        "SERVER_NAME" : "localhost:3020"
+    "hostname": "localhost",
+    "port": "5620",
+    "flask_settings": {
+        "SERVER_NAME": "localhost:5620"
     },
-    "printer_driver" : "Usb" , 
-    "printer_settings" : {
+    "printer_driver": "Usb",
+    "printer_settings": {
+        "idVendor": "0x0483",
+        "idProduct": "0x5743"
     },
-    "output_folder" : "output",
-    "output_file_format" : "%Y-%m-%d %H-%M-%s.txt"
+    "output_folder": "output",
+    "output_file_format": "%Y-%m-%d %H-%M-%s.txt"
 }
