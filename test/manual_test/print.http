@@ -1,0 +1,15 @@
+
+@hostname=localhost
+@port = 5620
+@host = {{hostname}}:{{port}}
+@contentType = application/json
+@createdAt = {{$datetime iso8601}}
+
+
+
+POST http://{{host}}/print HTTP/1.1
+content-type: {{contentType}}
+
+{
+    "text": "\n \n hola asdfiasdfaisdfasdf asdf asdf asdf "
+}

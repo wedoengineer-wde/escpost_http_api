@@ -23,13 +23,14 @@ def create_routes(app, printer, logger: Logger):
         return "OK"
 
     @app.route("/print", methods=["POST"])
-    def print():
+    def to_print():
 
         data = request.get_json()
         text = data["text"]
-        printer.text(text)
 
-        logger.print_to_file(printer.output)
+        printer.text(text)
+        if printer.__class__.__name__ == "Dummy":
+            logger.print_to_file(printer.output)
         return "ok"
 
     return app
