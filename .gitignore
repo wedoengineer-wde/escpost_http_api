@@ -3,7 +3,7 @@
 /__pycache__
 /Linux Driver
 /output/*txt
-
+/.vscode
 
 # editor autosaves, data and file browser files
 $~
