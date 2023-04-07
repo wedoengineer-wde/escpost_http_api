@@ -1,0 +1,14 @@
+{
+    "hostname": "0.0.0.0",
+    "port": "5620",
+    "flask_settings": {
+        "SERVER_NAME": "0.0.0.0:5620"
+    },
+    "printer_driver": "USB",
+    "printer_settings": {
+        "id_vendor": "0x0483",
+        "id_product": "0x5743"
+    },
+    "output_folder": "output",
+    "output_file_format": "%Y-%m-%d %H-%M.txt"
+}
