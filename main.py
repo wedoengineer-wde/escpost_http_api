@@ -22,6 +22,13 @@ def create_routes(app, printer, logger: Logger):
     def hello_world():
         return "OK"
 
+    @app.route("/open_cashdraw", methods=["POST"])
+    def open_cashdraw():
+        printer.cashdraw(config.cashdrawer_pin)
+        if printer.__class__.__name__ == "Dummy":
+            logger.print_to_file(printer.output)
+        return {'ok': 'ok'}
+
     @app.route("/print", methods=["POST"])
     def to_print():
 
@@ -30,6 +37,7 @@ def create_routes(app, printer, logger: Logger):
 
         print(text)
         printer.text(text)
+        printer.cashdraw(config.cashdrawer_pin)
         if printer.__class__.__name__ == "Dummy":
             logger.print_to_file(printer.output)
         response = {'ok': 'ok'}
@@ -39,10 +47,11 @@ def create_routes(app, printer, logger: Logger):
     def to_cut():
         # printer.text("\n")
         printer.cut()
+        printer.open
 
         if printer.__class__.__name__ == "Dummy":
             logger.print_to_file(printer.output)
-        return "ok"
+        return {'ok': 'ok'}
 
     return app
 

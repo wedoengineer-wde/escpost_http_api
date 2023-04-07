@@ -9,6 +9,7 @@
         "idVendor": "0x0483",
         "idProduct": "0x5743"
     },
+    "pin": "2",
     "output_folder": "output",
     "output_file_format": "%Y-%m-%d %H-%M-%s.txt"
 }

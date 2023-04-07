@@ -25,3 +25,4 @@ class Config():
         Config.printer_settings = settings["printer_settings"]
         Config.output_folder = settings["output_folder"]
         Config.output_file_format = settings["output_file_format"]
+        Config.cashdrawer_pin = settings["cashdrawer_pin"]
