@@ -28,10 +28,12 @@ def create_routes(app, printer, logger: Logger):
         data = request.get_json()
         text = data["text"]
 
+        print(text)
         printer.text(text)
         if printer.__class__.__name__ == "Dummy":
             logger.print_to_file(printer.output)
-        return "ok"
+        response = {'ok': 'ok'}
+        return response
 
     @app.route("/cut", methods=["POST"])
     def to_cut():
